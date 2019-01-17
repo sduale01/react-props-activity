@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header.js';
 import EnterNumber from './components/EnterNumber.js';
@@ -12,32 +11,34 @@ class App extends Component {
 
     this.state = {
       currentTotal: 0,
+      histoyNumber: [{value: 5}, {value: 56}]
     }
+
   }
 
   addNumToCurrentTotal = (newTotal) => {
-    
     this.setState({
       currentTotal: this.state.currentTotal + parseInt(newTotal.numberIn),
     })
-    console.log('current total:', this.state.currentTotal);
-    
   }
 
   addToHistoryList = (histoyNum) => {
-
-  }
-
+    this.setState({
+      histoyNumber: [...this.state.histoyNumber, histoyNum]
+    });
+      console.log('numb to add to history is: ', histoyNum);
+    }
+    
+    
   
 
-  
   render() {
     return (
       <div className="App">
         <Header />
         <EnterNumber addNumToCurrentTotal = {this.addNumToCurrentTotal} />
-        <CurrentTotal currentTotal = {this.state.currentTotal} />
-        <History sendCurrentTotal = {this.props.sendTotal} />
+        <CurrentTotal currentTotal = {this.state.currentTotal} addToHistory= {this.addToHistoryList}/>
+        <History addToHistoryList = {this.state.histoyNumber} />
       </div>
     );
   }

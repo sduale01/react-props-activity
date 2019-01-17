@@ -1,26 +1,20 @@
 import React, {Component} from 'react';
 
 class CurrentTotal extends Component {
-    // constructor() {
-    //     super();
 
-    //     this.state = {
-    //         totalState: 0,
-    //     }
-    // }
-
-    grabTotal = (numToSend) => {
+    grabTotal = () => {
         
-        numToSend = this.props.currentTotal
+        const numToSend = {
+            value: this.props.currentTotal,
+        }
         console.log('number to add to list is:', numToSend);
-        
-        // this.props.sendCurrentTotal(numToSend);
+        this.props.addToHistory(numToSend);
     }
     
     
     
+    
     render() {
-
         return (
             <div>
                 <p>{this.props.currentTotal}</p>

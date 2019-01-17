@@ -11,7 +11,8 @@ class EnterNumber extends Component {
 
     handleNumChange = (event) => {
         this.setState({
-            totalNumber:event.target.value,
+            // event.target.value will be a string
+            totalNumber: event.target.value,
         })
     }
 
@@ -36,10 +37,10 @@ class EnterNumber extends Component {
         
     }
 
-    addNumToTotal = (event) => {
+    // addNumToTotal = (event) => {
         
-        event.preventDefault();
-    }
+    //     event.preventDefault();
+    // }
 
     render() {
         return (
@@ -49,13 +50,8 @@ class EnterNumber extends Component {
                 <input onChange={this.handleNumChange} type="number" placeholder="Enter Number" />
                 <button onClick={this.handleDownChange}>Down</button>
             </div>
-
         )
-
     }
 }
-
-
-
 
 export default EnterNumber;
